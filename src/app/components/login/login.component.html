@@ -1,14 +1,17 @@
 <div class="d-flex justify-content-center align-items-center min-vh-100">
   <div class="form-container">
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" autocomplete="off">
-      <div class="header-container">
-        <span class="h1 fw-bold header-text" style="color: cadetblue;">Medic Lab</span>
-      </div>
-      <h1 class="h3 mt-5 mb-4 fw-normal">Sign in</h1>
+      <h1 class="mt-2 mb-4 fs-2" style="text-align:center;">Sign in</h1>
 
       <div class="form-floating mb-3">
-        <input class="form-control" id="floatingInput" name="username" formControlName="username" placeholder="Username"
+        <input 
+          class="form-control" 
+          id="floatingInput" 
+          name="username" 
+          formControlName="username" 
+          placeholder="Username"
           [ngClass]="{'is-invalid': submitted && f['username'].errors}">
+
         <label for="floatingInput">Username</label>
         @if (submitted && f['username'].errors) {
         <div class="invalid-feedback">
@@ -19,8 +22,15 @@
         }
       </div>
       <div class="form-floating mb-4">
-        <input type="password" class="form-control" id="floatingPassword" name="password" formControlName="password"
-          placeholder="Password" [ngClass]="{'is-invalid': submitted && f['password'].errors}">
+        <input 
+          type="password" 
+          class="form-control" 
+          id="floatingPassword" 
+          name="password" 
+          formControlName="password"
+          placeholder="Password" 
+          [ngClass]="{'is-invalid': submitted && f['password'].errors}">
+
         <label for="floatingPassword">Password</label>
         @if (submitted && f['password'].errors) {
         <div class="invalid-feedback">
@@ -31,7 +41,7 @@
         }
       </div>
 
-      <button class="btn btn-primary w-100 py-2" type="submit" [disabled]="loading">
+      <button class="btn btn-success w-100 py-2" type="submit" [disabled]="loading">
         <span *ngIf="!loading">Sign in</span>
         <div *ngIf="loading" class="spinner-border spinner-border-sm" role="status">
         </div>

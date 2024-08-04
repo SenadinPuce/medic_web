@@ -1,0 +1,19 @@
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
+    <div class="container p-2">
+        <span class="navbar-brand">Medic Lab</span>
+
+        <div class="dropdown" style="min-width: 200px;">
+        @if (accountService.currentUser()) {
+        <div dropdown class="dropdown">
+           
+            <a dropdownToggle class="dropdown-toggle text-light text-decoration-none">
+                Welcome {{accountService.currentUser()?.name}}
+            </a>
+            <div *dropdownMenu class="dropdown-menu">
+                <a class="dropdown-item" (click)="logout()">Logout</a>
+            </div>
+        </div>
+        } 
+        </div>
+    </div>
+</nav>

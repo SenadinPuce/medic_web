@@ -20,6 +20,10 @@ export class AccountService {
     return this.http.post(this.baseUrl + 'account/login', values, { withCredentials: true });
   }
 
+  logout() {
+    return this.http.post(this.baseUrl + 'account/logout', {});
+  }
+
   
   getUserInfo() {
     return this.http.get<AuthenticatedUser>(this.baseUrl + 'account/user-info').pipe(
