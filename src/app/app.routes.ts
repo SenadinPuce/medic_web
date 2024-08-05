@@ -5,5 +5,6 @@ import { adminGuard } from './guard/admin.guard';
 
 export const routes: Routes = [
     {path: '', component: LoginComponent},
-    {path: 'home', component: HomeComponent, canActivate: [adminGuard]}
+    {path: 'home', component: HomeComponent, canActivate: [adminGuard]},
+    {path: '**', redirectTo: '', pathMatch: 'full'}
 ];

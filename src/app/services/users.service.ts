@@ -11,6 +11,10 @@ export class UsersService {
   baseUrl = environment.apiUrl;
   private http = inject(HttpClient);
 
+  getUserById(id: string) {
+    return this.http.get<User>(this.baseUrl + 'users/details/' + id);
+  }
+
   getUsers(searchString: string, pageIndex: number, pageSize: number) {
     let params = new HttpParams();
 
@@ -23,4 +27,15 @@ export class UsersService {
     return this.http.get<PagedResult<User>>(this.baseUrl + 'users', { params });
   }
 
+  addUser(user: User) {
+    return this.http.post<User>(this.baseUrl + 'users/add', user);
+  }
+
+  updateUser(id: string, user: User) {
+    return this.http.put<User>(this.baseUrl + 'users/update/' + id, user);
+  }
+
+  blockUser(id: string, status: boolean) {
+    return this.http.patch<User>(this.baseUrl + 'users/change-status/' + id, {isBlocked: status});
+  }
 }

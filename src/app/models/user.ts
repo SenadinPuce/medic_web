@@ -5,6 +5,6 @@ export type User = {
     orders: number; 
     lastLoginDate: string;
     imageUrl: string | null;
-isBlocked: boolean;
+    isBlocked: boolean;
     dateOfBirth: string;
 };

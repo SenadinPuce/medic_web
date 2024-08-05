@@ -13,7 +13,6 @@ export class InitService {
     return this.accountService.getUserInfo().pipe(
       tap(user => {
         if (user) {
-          console.log('User info loaded:', user);
         }
       })
     );
